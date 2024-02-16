@@ -31,4 +31,6 @@ jobs:
           echo "$filetype_parameter"
           echo "file_to_build:"
           echo "$file_to_build"
+          echo "PIPESTATUS"
+          echo "${PIPESTATUS[0]}"
           xcodebuild clean build analyze -scheme "$scheme" -"$filetype_parameter" "$file_to_build" | xcpretty && exit ${PIPESTATUS[0]}
